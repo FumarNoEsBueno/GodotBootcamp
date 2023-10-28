@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://01b6m4yqns72"]
+
+[ext_resource type="Script" path="res://Scripts/SimpleTextBox.cs" id="1_o32mn"]
+
+[node name="SimpleTextBox" type="Label"]
+custom_minimum_size = Vector2(12, 0)
+offset_left = 40.0
+offset_top = 466.0
+offset_right = 1240.0
+offset_bottom = 677.0
+script = ExtResource("1_o32mn")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://61pnsq6n4trs"]
+
+[ext_resource type="PackedScene" uid="uid://bis7a0fnjxs8d" path="res://Scenes/presentacion.tscn" id="1_18ltv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+editor_draw_limits = true
+
+[node name="Label" parent="." instance=ExtResource("1_18ltv")]
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 1232.0
+offset_bottom = 687.0

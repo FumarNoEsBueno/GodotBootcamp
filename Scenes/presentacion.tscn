@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://bis7a0fnjxs8d"]
+
+[ext_resource type="Script" path="res://Scripts/Presentacion.cs" id="1_8y83v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d8mfo"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_d0g7i"]
+font_size = 32
+
+[sub_resource type="Animation" id="Animation_bpu2r"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.196078), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xyl76"]
+_data = {
+"new_animation": SubResource("Animation_bpu2r")
+}
+
+[node name="Label" type="Label"]
+offset_left = -594.0
+offset_top = -327.0
+offset_right = 598.0
+offset_bottom = 328.0
+text = "Todos los personajes y eventos de la presente obra son reales, da igual lo que diga el departamento de recursos humanos. Y ahora, un mensaje de nuestro patrocinador:
+
+Wena los k.
+Mi plan para estudiar esta cosa es que compartamose éste repositorio de git, cada uno con su propia rama (duh), con cada rama accesible desde el menu que puse despues de éste mensaje.
+Dudo que, dado los horarios de cada uno, podamos juntarnos a trabajar en conjunto de forma reiterada, pero eso no significa que no podamos aprender con ésta cosa (a base de copiarnos codigo mutuamente) y hacernos millonarios haciendo novelas visuales.
+"
+label_settings = SubResource("LabelSettings_d8mfo")
+autowrap_mode = 3
+script = ExtResource("1_8y83v")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 617.0
+offset_top = 597.0
+offset_right = 1193.0
+offset_bottom = 645.0
+text = "(Apachurrale al enter para continuar)"
+label_settings = SubResource("LabelSettings_d0g7i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+libraries = {
+"": SubResource("AnimationLibrary_xyl76")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
